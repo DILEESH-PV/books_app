@@ -1,3 +1,8 @@
+import mysql.connector
+
+mydb=mysql.connector.connect(host='localhost',user='root',password='',database='librarydb')
+
+mycursor=mydb.cursor()
 while True:
     print("\nSelect an option")
     print("1 add a book")
@@ -9,7 +14,16 @@ while True:
     
     ch=int(input("select an option  : \n"))
     if (ch==1):
-        print("selected add book")
+        cat=input("Enter the category of the book")
+        name=input("Enter the title of the book")
+        author=input("Enter author name")
+        pb=input("Enter the the publication")
+        charge=input("Enter the book charge per day")
+        sql='INSERT INTO `books`(`category`, `title`, `author`, `publication`, `price`) VALUES (%s,%s,%s,%s,%s)'
+        data=(cat,name,author,pb,charge)
+        mycursor.execute(sql,data)
+        mydb.commit()        
+        print("inserted success")
     elif(ch==2):
          print("selected view all books")
     elif(ch==3):
