@@ -10,7 +10,11 @@ while True:
     print("3 search a book")
     print("4 update a book")
     print("5 delete a book")
-    print("6 exit")
+    print("6 search book by specific letter")
+    print("7 total number of books by category")
+    print("8 display the detail of book by category name")
+    print("9 view the total amount for each book depending on the return date")
+    print("10 exit")
     
     ch=int(input("select an option  : \n"))
     if (ch==1):
@@ -54,4 +58,12 @@ while True:
         mydb.commit()
         print("deleted successfully")
     elif(ch==6):
+        sl= input("Enter the letter to search: ")
+        sql="SELECT `title`,`category`,`author`, `publication`,`price` FROM `books` WHERE `title` LIKE '"+sl+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==10):
         break
+        
