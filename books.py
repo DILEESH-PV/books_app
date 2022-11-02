@@ -25,7 +25,12 @@ while True:
         mydb.commit()        
         print("inserted success")
     elif(ch==2):
-         print("selected view all books")
+        sql='SELECT * FROM `books`'
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
+        print("selected view all books")
     elif(ch==3):
         print("selected search books")
     elif(ch==4):
