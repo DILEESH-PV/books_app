@@ -32,7 +32,11 @@ while True:
             print(i)
         print("selected view all books")
     elif(ch==3):
-        print("selected search books")
+        name=input("Enter the book title for searching the book")
+        sql="SELECT * FROM `books` WHERE `title`='"+name+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        print(result)
     elif(ch==4):
         print("selected update the books")
     elif(ch==5):
