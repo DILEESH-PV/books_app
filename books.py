@@ -38,7 +38,15 @@ while True:
         result=mycursor.fetchall()
         print(result)
     elif(ch==4):
-        print("selected update the books")
+        name=input("Enter the book title ")
+        cat=input("Enter the category to be updated")
+        author=input("Enter author name to be updated")
+        pb=input("Enter the the publication to be updated ")
+        charge=input("Enter the book charge per day to be updated")
+        sql="UPDATE `books` SET `category`='"+cat+"',`author`='"+author+"',`publication`='"+pb+"',`price`='"+charge+"' WHERE `title`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("updated successfully")       
     elif(ch==5):
         print("selected delete books")
     elif(ch==6):
