@@ -64,6 +64,13 @@ while True:
         result = mycursor.fetchall()
         for i in result:
             print(i)
+    elif(ch==7):
+        print("Total number of books in each category")
+        sql ="SELECT COUNT(id) AS total,`category` FROM `books` GROUP BY `category`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==10):
         break
         
