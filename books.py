@@ -71,6 +71,14 @@ while True:
         result = mycursor.fetchall()
         for i in result:
             print(i)
+    elif(ch == 8):
+        print("View book from a specific category")
+        bc = input("Enter the category to view books: ")
+        sql = "SELECT * FROM `books` WHERE `category` = '"+bc+"'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==10):
         break
         
