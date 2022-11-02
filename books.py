@@ -79,6 +79,12 @@ while True:
         result = mycursor.fetchall()
         for i in result:
             print(i)
+    elif(ch==9):
+        sql="SELECT i.`bookid`,i.`userid`,i.`issuedate`,i.`returndate`,DATEDIFF(i.`returndate`,i.`issuedate`)AS Datediff,DATEDIFF(i.`returndate`,i.`issuedate`)*b.price AS totalamt FROM `issuebook`i JOIN books b ON i.`bookid`=b.`id`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==10):
         break
         
